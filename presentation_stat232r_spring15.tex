@@ -38,7 +38,40 @@
 \end{frame}
 
 \begin{frame}[fragile]
+    \frametitle{The Multiphase Setup}
+
+    Two phases:
+    \begin{enumerate}
+    \item \textbf{Preprocessing} = Data generation, collection, preprocessing
+    \item \textbf{Downstream Analysis} = inference using output from phase 1
+    \end{enumerate}
+    
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[width=.6\textwidth]{two_phase_setting.png}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    Do we want another slide here? basic notation or definitions, discussion of the missingness and missingness pattern?
+
+\end{frame}
+
+\begin{frame}[fragile]
     \frametitle{NASA Raw Satellite Data}
+    
+    Level 0 satellite readings -> -> -> Level 3 satellite readings
+    
+    \vspace*{8mm}
+
+    \textbf{Preprocessing has led to incorrect correlation estimates}
+    
+    \vspace*{2mm}
+
+    \textbf{Goal:} Estimate parameters and correlation between them.
+    
+    Correlation is calculated using point estimates based on single set of underlying observations -> negative correlation that contradicts astrophysical theory
 
 \end{frame}
 
@@ -64,13 +97,42 @@
 
 \begin{frame}[fragile]
     \frametitle{Regression}
+    
+    \textbf{Data:} $y_{ij} \sim N(\beta_0 + \beta_{1i}x_j, \sigma^2)$ for $j = 1...m$
+    
+    \textbf{Downstream analyst wants to estimate:} $\beta_0$ with $\beta_{1i}$ and $\sigma^2$ as nuisance parameters
+    
+    \textbf{Preprocessor reduces data to:} $T_i = \frac{1}{m}\sum(y_{ij} - \hat{\beta_{ij}}x_j$ where $\hat{\beta_{1i}}$ is the OLS estimator.
 
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Twitter Example, etc. }
+    \frametitle{discussion of twitter example for people to think about}
+
+ lots of data- approximately 8 tb a day if you include metadata and images (2010 estimate)
+ what are some things downstream analysts would want to estimate, and what are some ways the original data could be compressed?
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{What statistics should we retain?}
+    
+
+    \textbf{Optimal}- lossless compression to minimal sufficient statistics for a given research model
+    
+    This is only practical if there is an agreed-upon model. 
+    
+    \textbf{More reasonable}- hope downstream analyst's scientific model is related to researcher's observation model 
 
 \end{frame}
 
+\begin{frame}[fragile]
+
+    other slides:
+    another slide on what stuff to retain
+    discussion of risk and regret
+    discuss constraints of this work
+
+
+\end{frame}
 
 \end{document}
