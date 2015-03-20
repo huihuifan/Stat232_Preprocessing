@@ -1,0 +1,76 @@
+\documentclass[10pt, compress]{beamer}
+
+\usetheme{m}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\DeclareMathOperator*{\plim}{plim}
+
+\usemintedstyle{trac}
+
+\title{Witty interesting title here}
+\subtitle{}
+\date{\today}
+\author{Maxime and Angela}
+
+
+\begin{document}
+\maketitle
+
+\begin{frame}[fragile]
+    \frametitle{What is the Preprocessing problem?}
+  
+  \begin{center}
+    \textbf{Preprocessing} constrains downstream data analysis, 
+    
+    particularly in \textbf{multiphase inference}:
+  \end{center}
+  
+    \setbeamercovered{transparent}
+    \begin{enumerate}[<+->]
+    \item Original data is processed at each level of the analysis pipeline, often irreversibly, based on assumptions about what the future analysis may be and the observation mechanism
+    \vspace*{5mm}
+    \item Even if original data were passed down, many users may not know how to process the data themselves- the analyst performing the preprocessing may have detailed knowledge about the experimental situation
+  \end{enumerate}
+  
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{NASA Raw Satellite Data}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{High-throughput Biology: Expression Microarrays}
+    
+    \textbf{Raw data} = probe intensity measurements with control probes, but \textbf{want to study} log fold change in gene expression
+    
+    \textbf{Many levels of preprocessing:} 
+    \setbeamercovered{transparent}
+
+    \begin{enumerate} [<+->]
+    \item \textbf{background correction} to reduce noise- many different algorithms, mostly passing down point estimates
+    \vspace*{5mm}
+    \item \textbf{normalization across different microarrays} to reduce systematic error- but can compromise inferential validity if data is used for other analyses
+    \vspace*{5mm}
+    \item data transformations, screening for data corruption, etc.
+    \end{enumerate}
+    
+    At each step of preprocessing, large amounts of information are lost
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Regression}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Twitter Example, etc. }
+
+\end{frame}
+
+
+\end{document}
