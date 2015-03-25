@@ -3,12 +3,8 @@
 \usetheme{m}
 
 \usepackage{booktabs}
-\usepackage[scale=2]{ccicons}
-\usepackage{minted}
-
+\usepackage{amsmath,amsfonts,amsthm,commath,bm}
 \DeclareMathOperator*{\plim}{plim}
-
-\usemintedstyle{trac}
 
 \title{Witty interesting title here}
 \subtitle{}
@@ -90,11 +86,11 @@
 \begin{frame}[fragile]
     \frametitle{Regression}
     
-    \textbf{Data:} $y_{ij} \sim N(\beta_0 + \beta_{1i}x_j, \sigma^2)$ for $j = 1...m$
+    \textbf{Data:} $y_{ij} \sim N(\beta_0 + \beta_{1i}x_j, \sigma^2)$ for $j = 1 \ldots m$
     
     \textbf{Downstream analyst wants to estimate:} $\beta_0$ with $\beta_{1i}$ and $\sigma^2$ as nuisance parameters
     
-    \textbf{Preprocessor reduces data to:} $T_i = \frac{1}{m}\sum(y_{ij} - \hat{\beta_{ij}}x_j$ where $\hat{\beta_{1i}}$ is the OLS estimator.
+    \textbf{Preprocessor reduces data to:} $T_i = \frac{1}{m}\sum\del{y_{ij} - \hat{\beta_{ij}}x_j}$ where $\hat{\beta_{1i}}$ is the OLS estimator.
 
 \end{frame}
 
