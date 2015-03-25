@@ -60,19 +60,11 @@
 
 \begin{frame}[fragile]
     \frametitle{NASA Raw Satellite Data}
-    
-    Level 0 satellite readings -> -> -> Level 3 satellite readings
-    
-    \vspace*{8mm}
-
-    \textbf{Preprocessing has led to incorrect correlation estimates}
-    
-    \vspace*{2mm}
-
-    \textbf{Goal:} Estimate parameters and correlation between them.
-    
-    Correlation is calculated using point estimates based on single set of underlying observations -> negative correlation that contradicts astrophysical theory
-
+    \begin{itemize}
+        \item Data sent back to Earth is constrained by bandwidth
+        \item $\rightarrow$ compression is necessary, but lossless compression is insufficient
+        \item \textbf{Goal:} Valid science despite compression
+    \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
