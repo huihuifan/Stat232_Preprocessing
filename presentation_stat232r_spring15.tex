@@ -108,6 +108,7 @@
     		\begin{itemize}
     			\item Sufficiency: $\Pr\del{\theta \mid Y,T\del{Y}}=\Pr\del{\theta \mid T\del{Y}}$
     			\item This is only practical if the analyst's model $X \mid \theta$ is specified and known before preprocessing.
+    			\item \textbf{More realistic:} Hope downstream analyst's scientific model is related (congenial) to preprocessor's observation model
     		\end{itemize}
     \end{itemize}
 \end{frame}
@@ -118,7 +119,17 @@
 \begin{frame}[fragile]
     \frametitle{What should we retain?}
     \begin{itemize}
-    	\item \textbf{More realistic:} Hope downstream analyst's scientific model is related (congenial) to preprocessor's observation model
+    	\item \textbf{Problem:} The “sweet spot” depends on the scientific model $X \mid \theta$. Different analysts will have different models $X \mid \eta_i$ with a different optimal $T_i\del{Y}$
+    		\begin{itemize}
+    			\item and even those might not be known in advance.
+    		\end{itemize}
+    	\item \textbf{Goal:} Find a statistic that retains enough information to keep most people happy.
+    \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{Thank you, but how does one achieve that?}
+    \begin{itemize}
+    	\item involve downstream analysts in the design of preprocessing techniques
     \end{itemize}
 \end{frame}
 
