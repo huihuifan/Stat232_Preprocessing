@@ -135,6 +135,68 @@
 \end{frame}
 
 \begin{frame}[fragile]
+    \frametitle{Dealing with Nuisance Parameters}
+
+    Researcher conducts $i$ experiments to generate observations $Y_i$, each of which brings a nuisance parameter $\xi_i$. 
+    
+    % In context of microarray example, each $i$ would be an experiment from one microarray with 
+    % its own set of experimental observation parameters
+    
+    Nuisance parameters present some issues:
+    \begin{enumerate}
+    \item MLE can be inefficient and inconsistent if $dim(\xi) \to\infty$
+    \item Can try and marginalize over the nuisance parameters, but resulting inference can be sensitive to the prior on $\xi$
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}[fragile]
+
+    \frametitle{Regression with Nuisance Parameters: An Example}
+    
+    \textbf{Sensitivity to nuisance parameters can potentially be eliminated by careful preprocessing}
+
+    \vspace*{5mm}
+    
+    \textbf{Example:} Select $T$ as a \textbf{partial pivot} so that distribution of $T$ is free of $\xi_2$ for all $\xi_1$ 
+
+    \vspace*{5mm}
+    
+    \textbf{Data:} $y_{ij} \sim N(\beta_0 + \beta_{1i}x_j, \sigma^2)$ for $j = 1 \ldots m$
+    
+    \textbf{Downstream analyst wants to estimate:} $\beta_0$ with $\beta_{1i}$ and $\sigma^2$ as nuisance parameters so that $\xi$ = $(\sigma^2, \beta_{11}, ..., \beta_{1n})$
+    
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Regression with Nuisance Parameters, continued}
+   
+    \textbf{Preprocessor reduces data to:} $T_i = \frac{1}{m}\sum\del{y_{ij} - \hat{\beta_{ij}}x_j}$ where $\hat{\beta_{1i}}$ is the OLS estimator of $\beta_{1i}$.
+    
+    \vspace*{5mm}
+    
+    Distribution of $T_i$ depends on $\sigma^2$ but is free of $B_{1i}$ so $T$ is a partial pivot. 
+    
+    Reducing $Y$ to $T$ means that only $\xi_1$ is relevant for the distribution of $T$, so inference is more robust to preprocessor's beliefs about $\xi$
+    
+    % this is since information accumulates on xi_1- we have the same amount of data but one less parameter to estimate. kind of like value functions being "freed up" to perform better estimation %
+    
+    % Preprocessing that removes nuisance parameters reduces the amount of information available from the data 
+    
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Preprocessed data -> efficient inference? Really?}
+
+    % Preprocessing is used often to simplify data problems so downstream analysts can apply common methods, so how could it possibly produce efficient inference?
+    
+    \textbf{Preprocessing allows some assumptions to be more appropriate}:
+    
+    
+
+\end{frame}
+
+\begin{frame}[fragile]
     \frametitle{Projecting into the future}
     
     \textbf{Likelihood as a minimal sufficient statistic}- computationally efficient approximations of the likelihood function could be foundation for passing information between phases of downstream analysis.  
@@ -154,7 +216,8 @@
     
     \begin{enumerate}
     \item Relates to prior presentation on congeniality in MI
-    \item 
+    \item Both papers want to bound and measure the amount of degradation in inference when information is imperfectly combined
+    \item Congeniality paper concludes that nuisance parameters are often a stumbling block for MI, perhaps understanding role of preprocessing in addressing nuisance parameters could be helpful
     \end{enumerate}
     
 \end{frame}
