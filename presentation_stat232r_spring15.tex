@@ -102,15 +102,24 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{What statistics should we retain?}
-    
-
-    \textbf{Optimal}- lossless compression to minimal sufficient statistics for a given research model
-    
-    This is only practical if there is an agreed-upon model. 
-    
-    \textbf{More reasonable}- hope downstream analyst's scientific model is related to researcher's observation model 
-
+    \frametitle{What should we retain?}
+    \begin{itemize}
+    	\item \textbf{Optimal:} lossless compression to \textbf{minimal sufficient} statistic for a given research model
+    		\begin{itemize}
+    			\item Sufficiency: $\Pr\del{\theta \mid Y,T\del{Y}}=\Pr\del{\theta \mid T\del{Y}}$
+    			\item This is only practical if the analyst's model $X \mid \theta$ is specified and known before preprocessing.
+    		\end{itemize}
+    \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{What should we retain?}
+    \includegraphics[width=\textwidth]{information.eps}
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{What should we retain?}
+    \begin{itemize}
+    	\item \textbf{More realistic:} Hope downstream analyst's scientific model is related (congenial) to preprocessor's observation model
+    \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
