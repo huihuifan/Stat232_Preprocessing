@@ -69,36 +69,49 @@
 \begin{frame}[fragile]
     \frametitle{Square Kilometer Array}
     \begin{columns}
-    	\column{0.5\textwidth}
-    		\begin{itemize}
-        		\item Radio telescope to be built 2018-2030
-        		\item Total collecting area = $1~\mathrm{km}^2$, between about 3000 dishes.
-        		\item Total data produced by radio telescopes scales as the \textbf{square} of the number of antennas (oops!).
-        		\item Raw data: Each antenna produces \textbf{420Gb/s}
-    		\end{itemize}
-    	\column{0.5\textwidth}
-    		\includegraphics[height=\textheight]{assets/ska_dish_mid_africa_closeup.jpg}
+        \column{0.5\textwidth}
+            \begin{itemize}
+                \item Radio telescope to be built 2018-2030
+                \item Total collecting area = $1~\mathrm{km}^2$, between about 3000 dishes.
+                \item Total data produced by radio telescopes scales as the \textbf{square} of the number of antennas (oops!).
+                \item Raw data: Each antenna produces \textbf{420Gb/s}
+            \end{itemize}
+        \column{0.5\textwidth}
+            \includegraphics[height=\textheight]{assets/ska_dish_mid_africa_closeup.jpg}
     \end{columns}
 \end{frame}
 \begin{frame}[fragile]
     \frametitle{Square Kilometer Array}
     \begin{columns}
-    	\column{0.5\textwidth}
-    		\begin{itemize}
-        		\item First stage preprocessing: correlation of signals between dishes
-        		\item \textbf{Lossless} reduction to about 100~Tb/s ($\approx$~the internet)
-        		\item That's still more raw data than is reasonable to store on hard drives
-        		\item $\rightarrow$ it will be necessary to \textbf{further reduce} the data in real time
-    		\end{itemize}
-    	\column{0.5\textwidth}
-    		\includegraphics[height=\textheight]{assets/skaall_night.jpg}
+        \column{0.5\textwidth}
+            \begin{itemize}
+                \item First stage preprocessing: correlation of signals between dishes
+                \item \textbf{Lossless} reduction to about 100~Tb/s ($\approx$~the internet)
+                \item That's still more raw data than is reasonable to store on hard drives
+                \item $\rightarrow$ it will be necessary to \textbf{further reduce} the data in real time
+            \end{itemize}
+        \column{0.5\textwidth}
+            \includegraphics[height=\textheight]{assets/skaall_night.jpg}
     \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
     \frametitle{High-throughput Biology: Expression Microarrays}
     
-    \textbf{Raw data} = probe intensity measurements with control probes, but \textbf{want to study} log fold change in gene expression
+    \begin{columns}
+        \column{0.5\textwidth}
+            \begin{itemize}
+                \item \textbf{Raw data} are probe intensity measurements, along with controls
+                \item \textbf{Want to study} log fold change in gene expression
+            \end{itemize}
+        \column{0.5\textwidth}
+            \includegraphics[height=\textheight]{microarray.jpg}
+    \end{columns}
+    
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{High-throughput Biology: Expression Microarrays}
     
     \textbf{Many levels of preprocessing:} 
     \setbeamercovered{transparent}
@@ -111,7 +124,23 @@
     \item data transformations, screening for data corruption, etc.
     \end{enumerate}
     
-    At each step of preprocessing, large amounts of information are lost
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Why are Preprocessing and Analysis separate?}
+    
+    \begin{enumerate} 
+    \item \textbf{Data warehousing limitations}- cannot store the datasets produced by radio telescopes
+    \vspace*{3mm}
+    \item \textbf{Division of labor}- 
+        \begin{itemize}
+        \item inefficient for each biologist to reproduce a whole analysis pipeline 
+        \item many companies that provide microarrays include algorithms and methods for data preprocessing immediately from raw output
+        \end{itemize}
+    \vspace*{3mm}
+    \item \textbf{Inability to provide whole datasets, only preprocessed versions}- data anonimzation concerns, for example
+    \end{enumerate}
 
 \end{frame}
 
