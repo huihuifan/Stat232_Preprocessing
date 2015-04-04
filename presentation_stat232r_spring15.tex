@@ -151,10 +151,6 @@
 
     \vspace*{5mm}
     
-    \textbf{Example:} Select $T$ as a \textbf{partial pivot} so that distribution of $T$ is free of $\xi_2$ for all $\xi_1$ 
-
-    \vspace*{5mm}
-    
     \textbf{Data:} $y_{ij} \sim N(\beta_0 + \beta_{1i}x_j, \sigma^2)$ for $j = 1 \ldots m$
     
     \textbf{Downstream analyst wants to estimate:} $\beta_0$ with $\beta_{1i}$ and $\sigma^2$ as nuisance parameters so that $\xi$ = $(\sigma^2, \beta_{11}, ..., \beta_{1n})$
@@ -168,7 +164,7 @@
     
     \vspace*{5mm}
     
-    Distribution of $T_i$ depends on $\sigma^2$ but is free of $B_{1i}$ so $T$ is a partial pivot. 
+    Distribution of $T_i$ depends on $\sigma^2$ but is free of $B_{1i}$ so $T$ is a \textbf{partial pivot}. 
     
     Reducing $Y$ to $T$ means that only $\xi_1$ is relevant for the distribution of $T$, so inference is more robust to preprocessor's beliefs about $\xi$
     
