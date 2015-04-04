@@ -69,29 +69,13 @@
 \begin{frame}[fragile]
     \frametitle{Square Kilometer Array}
     \begin{columns}
-    	\column{0.5\textwidth}
-    		\begin{itemize}
-        		\item Radio telescope to be built 2018-2030
-        		\item Total collecting area = $1~\mathrm{km}^2$, between about 3000 dishes.
-        		\item Total data produced by radio telescopes scales as the \textbf{square} of the number of antennas (oops!).
-        		\item Raw data: Each antenna produces \textbf{420Gb/s}
-    		\end{itemize}
-    	\column{0.5\textwidth}
-    		\includegraphics[height=\textheight]{assets/ska_dish_mid_africa_closeup.jpg}
-    \end{columns}
-\end{frame}
-\begin{frame}[fragile]
-    \frametitle{Square Kilometer Array}
-    \begin{columns}
-    	\column{0.5\textwidth}
-    		\begin{itemize}
-        		\item First stage preprocessing: correlation of signals between dishes
-        		\item \textbf{Lossless} reduction to about 100~Tb/s ($\approx$~the internet)
-        		\item That's still more raw data than is reasonable to store on hard drives
-        		\item $\rightarrow$ it will be necessary to \textbf{further reduce} the data in real time
-    		\end{itemize}
-    	\column{0.5\textwidth}
-    		\includegraphics[height=\textheight]{assets/skaall_night.jpg}
+        \column{0.5\textwidth}
+            \begin{itemize}
+                \item Radio telescope to be built 2018-2030
+                \item Total collecting area = $1~\mathrm{km}^2$, bet
+            \end{itemize}
+        \column{0.5\textwidth}
+            \includegraphics[width=\textheight]{assets/ska_dish_mid_africa_closeup.jpg}
     \end{columns}
 \end{frame}
 
@@ -207,8 +191,14 @@
     % Preprocessing is used often to simplify data problems so downstream analysts can apply common methods, so how could it possibly produce efficient inference?
     
     \textbf{Preprocessing allows some assumptions to be more appropriate}:
+
+    \begin{enumerate}
+    \item Aggregation of data can lead to stronger normality assumptions
+    \item Data normalization could eliminate nuisance parameters
+    \item Data discretization could reduce reliance on parametric distributional assumptions
+    \end{enumerate}
     
-    
+    However preprocessing is incredibly complex, and finding sufficient statistics is difficult. 
 
 \end{frame}
 
