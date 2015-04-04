@@ -6,14 +6,26 @@
 \usepackage{amsmath,amsfonts,amsthm,commath,bm}
 \DeclareMathOperator*{\plim}{plim}
 
-\title{Witty interesting title here}
-\subtitle{}
+\title{Potentials and Perils of Preprocessing}
+\subtitle{Alexander W. Blocker and Xiao-Li Meng}
 \date{\today}
 \author{Maxime and Angela}
 
 
 \begin{document}
 \maketitle
+
+\begin{frame}[fragile]
+    \frametitle{Overview of the Paper}
+    
+    Addresses data preprocessing and its effect on later analysis in three main ways:
+    \begin{enumerate}
+    \item Points out potential problems with current preprocessing strategies
+    \item Describes a statistical framework for analyzing data preprocessing
+    \item Proves some theorems about sufficiency 
+    \end{enumerate}
+
+\end{frame}
 
 \begin{frame}[fragile]
     \frametitle{What is the Preprocessing problem?}
@@ -57,13 +69,13 @@
 \begin{frame}[fragile]
     \frametitle{Square Kilometer Array}
     \begin{columns}
-    	\column{0.5\textwidth}
-    		\begin{itemize}
-        		\item Radio telescope to be built 2018-2030
-        		\item Total collecting area = $1~\mathrm{km}^2$, bet
-    		\end{itemize}
-    	\column{0.5\textwidth}
-    		\includegraphics[width=\textheight]{assets/ska_dish_mid_africa_closeup.jpg}
+        \column{0.5\textwidth}
+            \begin{itemize}
+                \item Radio telescope to be built 2018-2030
+                \item Total collecting area = $1~\mathrm{km}^2$, bet
+            \end{itemize}
+        \column{0.5\textwidth}
+            \includegraphics[width=\textheight]{assets/ska_dish_mid_africa_closeup.jpg}
     \end{columns}
 \end{frame}
 
@@ -88,63 +100,63 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Regression}
-    
-    \textbf{Data:} $y_{ij} \sim N(\beta_0 + \beta_{1i}x_j, \sigma^2)$ for $j = 1 \ldots m$
-    
-    \textbf{Downstream analyst wants to estimate:} $\beta_0$ with $\beta_{1i}$ and $\sigma^2$ as nuisance parameters
-    
-    \textbf{Preprocessor reduces data to:} $T_i = \frac{1}{m}\sum\del{y_{ij} - \hat{\beta_{ij}}x_j}$ where $\hat{\beta_{1i}}$ is the OLS estimator.
-
-\end{frame}
-
-\begin{frame}[fragile]
-    \frametitle{discussion of twitter example for people to think about}
-
- lots of data- approximately 8 tb a day if you include metadata and images (2010 estimate)
- what are some things downstream analysts would want to estimate, and what are some ways the original data could be compressed?
-\end{frame}
-
-\begin{frame}[fragile]
     \frametitle{What should we retain?}
     \begin{itemize}
-    	\item \textbf{Optimal:} lossless compression to \textbf{minimal sufficient} statistic for a given research model
-    		\begin{itemize}
-    			\item Sufficiency: $\Pr\del{\theta \mid Y,T\del{Y}}=\Pr\del{\theta \mid T\del{Y}}$
-    			\item This is only practical if the analyst's model $X \mid \theta$ is specified and known before preprocessing.
-    			\item \textbf{More realistic:} Hope downstream analyst's scientific model is related (congenial) to preprocessor's observation model
-    		\end{itemize}
+        \item \textbf{Optimal:} lossless compression to \textbf{minimal sufficient} statistic for a given research model
+            \begin{itemize}
+                \item Sufficiency: $\Pr\del{\theta \mid Y,T\del{Y}}=\Pr\del{\theta \mid T\del{Y}}$
+                \item This is only practical if the analyst's model $X \mid \theta$ is specified and known before preprocessing.
+                \item \textbf{More realistic:} Hope downstream analyst's scientific model is related (congenial) to preprocessor's observation model
+            \end{itemize}
     \end{itemize}
 \end{frame}
+
 \begin{frame}[fragile]
     \frametitle{What should we retain?}
     \includegraphics[width=\textwidth]{assets/information.eps}
 \end{frame}
+
 \begin{frame}[fragile]
     \frametitle{What should we retain?}
     \begin{itemize}
-    	\item \textbf{Problem:} The “sweet spot” depends on the scientific model $X \mid \theta$. Different analysts will have different models $X \mid \eta_i$ with a different optimal $T_i\del{Y}$
-    		\begin{itemize}
-    			\item and even those might not be known in advance.
-    		\end{itemize}
-    	\item \textbf{Goal:} Find a statistic that retains enough information to keep most people happy.
+        \item \textbf{Problem:} The “sweet spot” depends on the scientific model $X \mid \theta$. Different analysts will have different models $X \mid \eta_i$ with a different optimal $T_i\del{Y}$
+            \begin{itemize}
+                \item and even those might not be known in advance.
+            \end{itemize}
+        \item \textbf{Goal:} Find a statistic that retains enough information to keep most people happy.
     \end{itemize}
 \end{frame}
+
 \begin{frame}[fragile]
     \frametitle{Thank you, but how does one achieve that?}
     \begin{itemize}
-    	\item involve downstream analysts in the design of preprocessing techniques
+        \item involve downstream analysts in the design of preprocessing techniques
     \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
+    \frametitle{Projecting into the future}
+    
+    \textbf{Likelihood as a minimal sufficient statistic}- computationally efficient approximations of the likelihood function could be foundation for passing information between phases of downstream analysis.  
+    
+    Two things to consider:
+    \begin{enumerate}
+    \item Nuisance parameters 
+    \item Downstream analysts may be constrained by the likelihood approximation chosen. For example, analysts may want to estimate the data and estimate the parameters, and going from likelihood approximation to estimates of the data, X, could require a lot of effort and computation.
+    \end{enumerate}
 
-    other slides:
-    another slide on what stuff to retain
-    discussion of risk and regret
-    discuss constraints of this work
+\end{frame}
 
-
+\begin{frame}[fragile]
+    \frametitle{Projecting into the future}
+    
+    \textbf{Connection to Multiple Imputation} 
+    
+    \begin{enumerate}
+    \item Relates to prior presentation on congeniality in MI
+    \item 
+    \end{enumerate}
+    
 \end{frame}
 
 \end{document}
