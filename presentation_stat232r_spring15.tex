@@ -5,6 +5,9 @@
 \usepackage{booktabs}
 \usepackage{amsmath,amsfonts,amsthm,commath,bm}
 \DeclareMathOperator*{\plim}{plim}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\newcommand{\that}{\hat{\theta}}
 
 \title{Potentials and Perils of Preprocessing}
 \subtitle{Alexander W. Blocker and Xiao-Li Meng}
@@ -201,10 +204,34 @@
 
 \begin{frame}[fragile]
     \frametitle{Decision theory to the rescue.}
-    \begin{itemize}
-        \item That was an example of lossless preprocessing
-        \item Sometimes further reduction is necessary
-    \end{itemize}
+	\begin{itemize}
+		\item Further reduction is often necessary, but \textbf{comes at a cost}
+		\item formalised through \textbf{decision theory}: loss function $L\del{ \hat{\theta}, \theta_{true}}$
+		\item risk = expected loss 
+			\[ 
+				R\del{\hat{\theta},\theta_{true}} = \E{\cbr{L\del{ \hat{\theta}, \theta_{true}}}}
+			\]
+		\item regret = how bad is this estimator?
+			\[
+				R\del{\hat{\theta},\theta_{true}} - R\del{\hat{\theta}^*,\theta_{true}}
+			\]
+		\item Idea: risk with respect to better estimator. In our case, using the \textbf{full data} instead of the \textbf{reduced data}.
+				\[
+					R\del{\that\del{T},\that\del{Y}} = \E{\cbr{L\del{ \that\del{T},\that\del{Y} }}}
+				\]
+	\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{Decision theory to the rescue.}
+		\[
+				R\del{\that\del{T},\that\del{Y}} = \E{\cbr{L\del{ \that\del{T},\that\del{Y} }}}
+		\]
+	\begin{itemize}
+		\item e.g. mean-squared error
+			\[
+			R\del{\that\del{T},\that\del{Y}} = \E{\cbr{ \del{ \that\del{T}-\that\del{Y} }^2 }} 
+			\]
+	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
