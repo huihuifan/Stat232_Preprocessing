@@ -22,7 +22,6 @@
     \begin{enumerate}
     \item Points out potential problems with current preprocessing strategies
     \item Describes a statistical framework for analyzing data preprocessing
-    \item Proves some theorems about sufficiency 
     \end{enumerate}
 
 \end{frame}
@@ -31,16 +30,13 @@
     \frametitle{What is the Preprocessing problem?}
   
   \begin{center}
-    \textbf{Preprocessing} constrains downstream data analysis, 
-    
-    particularly in \textbf{multiphase inference}:
+    \textbf{Preprocessing} constrains downstream data analysis
   \end{center}
   
-    \setbeamercovered{transparent}
-    \begin{enumerate}[<+->]
-    \item Original data is processed at each level of the analysis pipeline, often irreversibly, based on assumptions about what the future analysis may be and the observation mechanism
-    \vspace*{5mm}
-    \item Even if original data were passed down, many users may not know how to process the data themselves- the analyst performing the preprocessing may have detailed knowledge about the experimental situation
+    \begin{enumerate}
+    \item Original data is processed at each level of the analysis pipeline, often irreversibly, based on assumptions about what the future analysis may be 
+    \item Even if original data was passed down, many users may not know how to process the data themselves. 
+    \item The analyst performing the preprocessing may have detailed knowledge about the experimental situation that the data user does not have
   \end{enumerate}
   
 \end{frame}
@@ -62,7 +58,17 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    Do we want another slide here? basic notation or definitions, discussion of the missingness and missingness pattern?
+    \frametitle{Missing Data}
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[width=.5\textwidth]{assets/two_phase_setting.ps}
+    \end{figure}   
+    \begin{enumerate}
+    \item \textbf{Missingness from data generation: X is missing} since preprocessor observes Y
+    \item \textbf{Missingness from inference process: Y and X are both missing} since data analyst observes T
+    \end{enumerate}
+    
+    Note that the analyst's $T(Y)$ is a product of preprocessing, so it is a \textbf{design decision} of the preprocessor.
 
 \end{frame}
 
@@ -71,7 +77,7 @@
     \begin{columns}
         \column{0.5\textwidth}
             \begin{itemize}
-                \item Radio telescope to be built 2018-2030
+                \item Radio telescope to be built around 2018-2030
                 \item Total collecting area = $1~\mathrm{km}^2$, between about 3000 dishes.
                 \item Total data produced by radio telescopes scales as the \textbf{square} of the number of antennas (oops!).
                 \item Raw data: Each antenna produces \textbf{420Gb/s}
@@ -87,8 +93,8 @@
             \begin{itemize}
                 \item First stage preprocessing: correlation of signals between dishes
                 \item \textbf{Lossless} reduction to about 100~Tb/s ($\approx$~the internet)
-                \item That's still more raw data than is reasonable to store on hard drives
-                \item $\rightarrow$ it will be necessary to \textbf{further reduce} the data in real time
+                \item That's more raw data than is reasonable to store on hard drives
+                \item $\rightarrow$ it will be necessary to \textbf{further reduce} the data in \textbf{real time}
             \end{itemize}
         \column{0.5\textwidth}
             \includegraphics[height=\textheight]{assets/skaall_night.jpg}
@@ -105,7 +111,7 @@
                 \item \textbf{Want to study} log fold change in gene expression
             \end{itemize}
         \column{0.5\textwidth}
-            \includegraphics[height=\textheight]{microarray.jpg}
+            \includegraphics[height=\textheight]{assets/microarray.jpg}
     \end{columns}
     
 \end{frame}
@@ -114,9 +120,8 @@
     \frametitle{High-throughput Biology: Expression Microarrays}
     
     \textbf{Many levels of preprocessing:} 
-    \setbeamercovered{transparent}
 
-    \begin{enumerate} [<+->]
+    \begin{enumerate}
     \item \textbf{background correction} to reduce noise- many different algorithms, mostly passing down point estimates
     \vspace*{5mm}
     \item \textbf{normalization across different microarrays} to reduce systematic error- but can compromise inferential validity if data is used for other analyses
@@ -131,7 +136,7 @@
     \frametitle{Why are Preprocessing and Analysis separate?}
     
     \begin{enumerate} 
-    \item \textbf{Data warehousing limitations}- cannot store the datasets produced by radio telescopes
+    \item \textbf{Data warehousing limitations}- cannot store the amount of data produced by radio telescopes
     \vspace*{3mm}
     \item \textbf{Division of labor}- 
         \begin{itemize}
@@ -204,10 +209,10 @@
 \end{frame}
 \begin{frame}[fragile]
     \frametitle{Decision theory to the rescut.}
-	\begin{itemize}
-		\item That was an example of lossless preprocessing
-		\item Sometimes further reduction is necessary
-	\end{itemize}
+    \begin{itemize}
+        \item That was an example of lossless preprocessing
+        \item Sometimes further reduction is necessary
+    \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
