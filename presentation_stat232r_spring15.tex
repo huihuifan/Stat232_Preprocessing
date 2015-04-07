@@ -108,8 +108,8 @@
     \begin{columns}
         \column{0.5\textwidth}
             \begin{itemize}
-                \item \textbf{Raw data} are probe intensity measurements, along with controls
-                \item \textbf{Want to study} log fold change in gene expression
+                \item \textbf{Raw data} are probe intensity measurements
+                \item \textbf{Want to study} log fold change in gene expression between different conditions
             \end{itemize}
         \column{0.5\textwidth}
         \vspace{.01cm}
@@ -126,9 +126,9 @@
     \begin{enumerate}
     \item \textbf{background correction} to reduce noise- many different algorithms, mostly passing down point estimates
     \vspace*{5mm}
-    \item \textbf{normalization across different microarrays} to reduce systematic error- but can compromise inferential validity if data is used for other analyses
+    \item \textbf{normalization across different microarrays} to reduce systematic error
     \vspace*{5mm}
-    \item data transformations, screening for data corruption, etc.
+    \item screening for data corruption, etc.
     \end{enumerate}
     
 \end{frame}
@@ -183,8 +183,8 @@
 
     \frametitle{Regression with Nuisance Parameters: An Example}
     
-    \textbf{Sensitivity to nuisance parameters can potentially be eliminated by careful preprocessing}
-
+    \textbf{Example of Preprocessing that helps reduce sensitivity to nuisance parameters}
+    
     \vspace*{5mm}
     
     \textbf{Data:} $y_{ij} \sim N(\beta_0 + \beta_{1i}x_j, \sigma^2)$ for $j = 1 \ldots m$
