@@ -183,7 +183,7 @@
 
     \frametitle{Regression with Nuisance Parameters: An Example}
     
-    \textbf{Example of Preprocessing that helps reduce sensitivity to nuisance parameters}
+    \textbf{Preprocessing can help reduce sensitivity to nuisance parameters}
     
     \vspace*{5mm}
     
@@ -191,26 +191,16 @@
     
     \textbf{Downstream analyst wants to estimate:} $\beta_0$ with $\beta_{1i}$ and $\sigma^2$ as nuisance parameters so that $\xi$ = $(\sigma^2, \beta_{11}, ..., \beta_{1n})$
     
-\end{frame}
-
-\begin{frame}[fragile]
-    \frametitle{Regression with Nuisance Parameters, continued}
-   
     \textbf{Preprocessor reduces data to:} $T_i = \frac{1}{m}\sum\del{y_{ij} - \hat{\beta_{ij}}x_j}$ where $\hat{\beta_{1i}}$ is the OLS estimator of $\beta_{1i}$.
     
     \vspace*{5mm}
     
-    Distribution of $T_i$ depends on $\sigma^2$ but is free of $B_{1i}$ so $T$ is a \textbf{partial pivot}. 
-    
-    Reducing $Y$ to $T$ means that only $\xi_1$ is relevant for the distribution of $T$, so inference is more robust to preprocessor's beliefs about $\xi$
-    
-    % this is since information accumulates on xi_1- we have the same amount of data but one less parameter to estimate. kind of like value functions being "freed up" to perform better estimation %
-    
-    % Preprocessing that removes nuisance parameters reduces the amount of information available from the data 
-    
+    Distribution of $T_i$ depends on $\sigma^2$ but is free of $B_{1i}$ so $T$ is a \textbf{partial pivot}- this example of preprocessing reducing the number of nuisance parameters. 
 \end{frame}
+
+
 \begin{frame}[fragile]
-    \frametitle{Decision theory to the rescut.}
+    \frametitle{Decision theory to the rescue.}
     \begin{itemize}
         \item That was an example of lossless preprocessing
         \item Sometimes further reduction is necessary
