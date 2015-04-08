@@ -171,16 +171,6 @@
     \includegraphics[width=\textwidth]{assets/information.eps}
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{What should we retain?}
-    \begin{itemize}
-        \item \textbf{Problem:} The “sweet spot” depends on the scientific model $X \mid \theta$. Different analysts will have different models $X \mid \eta_i$ with a different optimal $T_i\del{Y}$
-            \begin{itemize}
-                \item and even those might not be known in advance.
-            \end{itemize}
-        \item \textbf{Goal:} Find a statistic that retains enough information to keep most people happy.
-    \end{itemize}
-\end{frame}
 
 \begin{frame}[fragile]
 
@@ -201,6 +191,16 @@
     Distribution of $T_i$ still depends on $\sigma^2$, but is free of $B_{1i}$ 
 \end{frame}
 
+\begin{frame}[fragile]
+    \frametitle{What should we retain?}
+    \begin{itemize}
+        \item \textbf{Problem:} The “sweet spot” depends on the scientific model $X \mid \theta$. Different analysts will have different models $X \mid \eta_i$ with a different optimal $T_i\del{Y}$
+            \begin{itemize}
+                \item and even those might not be known in advance.
+            \end{itemize}
+        \item \textbf{Goal:} Find a statistic that retains enough information to keep most people happy.
+    \end{itemize}
+\end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Decision theory to the rescue.}
@@ -232,6 +232,10 @@
 			R\del{\that\del{T},\that\del{Y}} = \E{\cbr{ \del{ \that\del{T}-\that\del{Y} }^2 }} 
 			\]
 		\item asymptotically $R\del{\that\del{T},\that\del{Y}} \rightarrow \mathrm{regret}$ (“asymptotic decorrelation”)
+		\item for multiple analysts with different models, the costs can be averaged:
+			\[
+				\mathrm{regret}\del{T} = \frac{1}{N_{analysts}}\sbr{R\del{\that\del{T},\that\del{Y}}+R\del{\hat{\xi}\del{T},\hat{\xi}\del{Y}}+\ldots}
+			\]
 	\end{itemize}
 \end{frame}
 
