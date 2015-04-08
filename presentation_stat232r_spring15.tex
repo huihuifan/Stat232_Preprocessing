@@ -96,8 +96,20 @@
             \begin{itemize}
                 \item First stage preprocessing: correlation of signals between dishes
                 \item \textbf{Lossless} reduction to about 100~Tb/s ($\approx$~the internet)
-                \item That's more raw data than is reasonable to store on hard drives
-                \item $\rightarrow$ it will be necessary to \textbf{further reduce} the data in \textbf{real time}
+                \item Standard lossless compression algorithms (SZIP, GZIP…) can further reduce the data by about a third (Rajeswaran \& Winberg 2013).
+            \end{itemize}
+        \column{0.5\textwidth}
+            \vspace{.01cm}
+            \includegraphics[height=\textheight]{assets/skaall_night.jpg}
+    \end{columns}
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{Square Kilometer Array}
+    \begin{columns}
+        \column{0.5\textwidth}
+            \begin{itemize}
+                \item That's still more raw data than is reasonable to store on hard drives
+                \item it will be necessary to \textbf{further reduce} the data in \textbf{real time}
             \end{itemize}
         \column{0.5\textwidth}
             \vspace{.01cm}
@@ -287,6 +299,15 @@
     \vspace*{3mm}
     
     This paper has proposed a conceptual and mathematical framework to understand the issues that arise in preprocessing, and provides some suggestions for how researchers can begin to think about and investigate preprocessing effects. 
+  
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{References}
+    
+    \begin{enumerate}
+    	\item Blocker, Alexander W., and Xiao-Li Meng. "The potential and perils of preprocessing: Building new foundations." Bernoulli 19.4 (2013): 1176-1211.
+		\item Rajeswaran, Karthik, and Simon Winberg. "Lossless Compression of SKA Data Sets." Communications and Network 2013 (2013).
+	\end{enumerate}
   
 \end{frame}
 
