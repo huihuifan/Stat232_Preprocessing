@@ -176,14 +176,16 @@
 
     \frametitle{Regression with Nuisance Parameters: An Example}
     
-    \textbf{Preprocessing can help reduce sensitivity to nuisance parameters}
-    
     \vspace*{5mm}
     
     \textbf{Data:} Each processor $i$ observes $y_{ij} \sim N(\beta_0 + \beta_{1i}x_j, \sigma^2)$ for $j = 1 \ldots m$
     
+    \vspace*{2mm}
+
     \textbf{Downstream analyst wants to estimate:} $\beta_0$ with $\beta_{1i}$ and $\sigma^2$ as nuisance parameters so that $\xi$ = $(\sigma^2, \beta_{11} \ldots \beta_{1n})$
     
+    \vspace*{2mm}
+
     \textbf{Preprocessor reduces data to:} $T_i = \frac{1}{m}\sum\del{y_{ij} - \hat{\beta_{ij}}x_j}$ where $\hat{\beta_{1i}}$ is the OLS estimator of $\beta_{1i}$.
     
     \vspace*{5mm}
@@ -204,39 +206,39 @@
 
 \begin{frame}[fragile]
     \frametitle{Decision theory to the rescue.}
-	\begin{itemize}
-		\item Further reduction is often necessary, but \textbf{comes at a cost}
-		\item formalised through \textbf{decision theory}: loss function $L\del{ \hat{\theta}, \theta_{true}}$
-		\item risk = expected loss 
-			\[ 
-				R\del{\hat{\theta},\theta_{true}} = \E{\cbr{L\del{ \hat{\theta}, \theta_{true}}}}
-			\]
-		\item regret = how bad is this estimator?
-			\[
-				R\del{\hat{\theta},\theta_{true}} - R\del{\hat{\theta}^*,\theta_{true}}
-			\]
-		\item Idea: risk with respect to better estimator. In our case, using the \textbf{full data} instead of the \textbf{reduced data}.
-				\[
-					R\del{\that\del{T},\that\del{Y}} = \E{\cbr{L\del{ \that\del{T},\that\del{Y} }}}
-				\]
-	\end{itemize}
+    \begin{itemize}
+        \item Further reduction is often necessary, but \textbf{comes at a cost}
+        \item formalised through \textbf{decision theory}: loss function $L\del{ \hat{\theta}, \theta_{true}}$
+        \item risk = expected loss 
+            \[ 
+                R\del{\hat{\theta},\theta_{true}} = \E{\cbr{L\del{ \hat{\theta}, \theta_{true}}}}
+            \]
+        \item regret = how bad is this estimator?
+            \[
+                R\del{\hat{\theta},\theta_{true}} - R\del{\hat{\theta}^*,\theta_{true}}
+            \]
+        \item Idea: risk with respect to better estimator. In our case, using the \textbf{full data} instead of the \textbf{reduced data}.
+                \[
+                    R\del{\that\del{T},\that\del{Y}} = \E{\cbr{L\del{ \that\del{T},\that\del{Y} }}}
+                \]
+    \end{itemize}
 \end{frame}
 \begin{frame}[fragile]
     \frametitle{Decision theory to the rescue.}
-		\[
-				R\del{\that\del{T},\that\del{Y}} = \E{\cbr{L\del{ \that\del{T},\that\del{Y} }}}
-		\]
-	\begin{itemize}
-		\item e.g. mean-squared error
-			\[
-			R\del{\that\del{T},\that\del{Y}} = \E{\cbr{ \del{ \that\del{T}-\that\del{Y} }^2 }} 
-			\]
-		\item asymptotically $R\del{\that\del{T},\that\del{Y}} \rightarrow \mathrm{regret}$ (“asymptotic decorrelation”)
-		\item for multiple analysts with different models, the costs can be averaged:
-			\[
-				\mathrm{regret}\del{T} = \frac{1}{N_{analysts}}\sbr{R\del{\that\del{T},\that\del{Y}}+R\del{\hat{\xi}\del{T},\hat{\xi}\del{Y}}+\ldots}
-			\]
-	\end{itemize}
+        \[
+                R\del{\that\del{T},\that\del{Y}} = \E{\cbr{L\del{ \that\del{T},\that\del{Y} }}}
+        \]
+    \begin{itemize}
+        \item e.g. mean-squared error
+            \[
+            R\del{\that\del{T},\that\del{Y}} = \E{\cbr{ \del{ \that\del{T}-\that\del{Y} }^2 }} 
+            \]
+        \item asymptotically $R\del{\that\del{T},\that\del{Y}} \rightarrow \mathrm{regret}$ (“asymptotic decorrelation”)
+        \item for multiple analysts with different models, the costs can be averaged:
+            \[
+                \mathrm{regret}\del{T} = \frac{1}{N_{analysts}}\sbr{R\del{\that\del{T},\that\del{Y}}+R\del{\hat{\xi}\del{T},\hat{\xi}\del{Y}}+\ldots}
+            \]
+    \end{itemize}
 \end{frame}
 
 
@@ -254,9 +256,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Projecting into the future}
-    
-    \textbf{Connection to Multiple Imputation} 
+    \frametitle{Connections to Multiple Imputation}
     
     \begin{enumerate}
     \item Relates to prior presentation on congeniality in MI
