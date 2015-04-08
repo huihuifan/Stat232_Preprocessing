@@ -190,15 +190,15 @@
     
     \vspace*{5mm}
     
-    \textbf{Data:} $y_{ij} \sim N(\beta_0 + \beta_{1i}x_j, \sigma^2)$ for $j = 1 \ldots m$
+    \textbf{Data:} Each processor $i$ observes $y_{ij} \sim N(\beta_0 + \beta_{1i}x_j, \sigma^2)$ for $j = 1 \ldots m$
     
-    \textbf{Downstream analyst wants to estimate:} $\beta_0$ with $\beta_{1i}$ and $\sigma^2$ as nuisance parameters so that $\xi$ = $(\sigma^2, \beta_{11}, ..., \beta_{1n})$
+    \textbf{Downstream analyst wants to estimate:} $\beta_0$ with $\beta_{1i}$ and $\sigma^2$ as nuisance parameters so that $\xi$ = $(\sigma^2, \beta_{11} \ldots \beta_{1n})$
     
     \textbf{Preprocessor reduces data to:} $T_i = \frac{1}{m}\sum\del{y_{ij} - \hat{\beta_{ij}}x_j}$ where $\hat{\beta_{1i}}$ is the OLS estimator of $\beta_{1i}$.
     
     \vspace*{5mm}
     
-    Distribution of $T_i$ depends on $\sigma^2$ but is free of $B_{1i}$ so $T$ is a \textbf{partial pivot}- this example of preprocessing reducing the number of nuisance parameters. 
+    Distribution of $T_i$ still depends on $\sigma^2$, but is free of $B_{1i}$ 
 \end{frame}
 
 
@@ -236,20 +236,16 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Preprocessed data -> efficient inference? Really?}
+    \frametitle{Preprocessed data can help inference}
 
-    % Preprocessing is used often to simplify data problems so downstream analysts can apply common methods, so how could it possibly produce efficient inference?
-    
     \textbf{Preprocessing allows some assumptions to be more appropriate}:
 
     \begin{enumerate}
     \item Aggregation of data can lead to stronger normality assumptions
     \item Data normalization could eliminate nuisance parameters
-    \item Data discretization could reduce reliance on parametric distributional assumptions
+    \item Data discretization can lead to better predictive accuracy
     \end{enumerate}
     
-    However preprocessing is incredibly complex, and finding sufficient statistics is difficult. 
-
 \end{frame}
 
 \begin{frame}[fragile]
