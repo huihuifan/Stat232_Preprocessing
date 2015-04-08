@@ -136,6 +136,19 @@
     
 \end{frame}
 
+\begin{frame}[fragile]
+    
+    Let's say our goal is to assess if there is a significant difference in expression levels of 10 different genes between people
+    who have blue eyes and people who have brown eyes
+
+    $\theta$ = gene regulatory parameters that govern gene expression
+    $X$ = true gene expression levels of these 10 genes, and phenotypic observation if the person has blue eyes or brown eyes
+    $\xi$ = microarray noise parameters (such as hybridization, variance of experimental conditions, bleeding, clarity of signal, etc.)
+    $Y$ = raw probe measurements from the microarray
+    $T$ = normalized, transformed, reduced-dimension gene expression measurements for each of the 10 genes
+
+\end{frame}
+
 
 \begin{frame}[fragile]
     \frametitle{Why are Preprocessing and Analysis separate?}
