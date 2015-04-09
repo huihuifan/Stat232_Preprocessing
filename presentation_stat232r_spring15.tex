@@ -219,15 +219,15 @@
     
     \vspace*{2mm}
 
-    \textbf{Downstream analyst wants to estimate $\beta_0$}, with $\beta_{1j}$ and $\sigma^2$ as nuisance parameters so that $\xi$ = $(\sigma^2, \beta_{11} \ldots \beta_{1n})$
+    \textbf{Downstream analyst wants to estimate $\beta_0$}, with $\beta_{1i}$ and $\sigma^2$ as nuisance parameters so that $\xi$ = $(\sigma^2, \beta_{11} \ldots \beta_{1n})$
     
     \vspace*{2mm}
 
-    \textbf{Preprocessor reduces data to:} $T_i = \frac{1}{m}\sum\del{y_{ij} - \hat{\beta_{ij}}x_j}$ where $\hat{\beta_{1i}}$ is the OLS estimator of $\beta_{1i}$.
+    \textbf{Preprocessor reduces data to:} $T_i = \frac{1}{m}\sum\del{y_{ij} - \hat{\beta_{1j}}x_j}$ where $\hat{\beta_{1i}}$ is the OLS estimator of $\beta_{1i}$.
     
     \vspace*{5mm}
     
-    Distribution of $T_i$ still depends on $\sigma^2$, but is free of $\beta_{ij}$ 
+    Distribution of $T_i$ still depends on $\sigma^2$, but is free of $\beta_{1i}$ 
 \end{frame}
 
 \begin{frame}[fragile]
